@@ -17,6 +17,7 @@
 		705B58851DF9E6670048FB3F /* ElementTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705B58841DF9E6670048FB3F /* ElementTableVC.swift */; };
 		705B58871DF9E6A00048FB3F /* ElementCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705B58861DF9E6A00048FB3F /* ElementCellVC.swift */; };
 		705B588C1DF9E7300048FB3F /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705B588B1DF9E7300048FB3F /* Element.swift */; };
+		705B588F1DFA07250048FB3F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705B588E1DFA07250048FB3F /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		705B58841DF9E6670048FB3F /* ElementTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementTableVC.swift; sourceTree = "<group>"; };
 		705B58861DF9E6A00048FB3F /* ElementCellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementCellVC.swift; sourceTree = "<group>"; };
 		705B588B1DF9E7300048FB3F /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		705B588E1DFA07250048FB3F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				705B58841DF9E6670048FB3F /* ElementTableVC.swift */,
+				705B588E1DFA07250048FB3F /* DetailViewController.swift */,
 				705B58861DF9E6A00048FB3F /* ElementCellVC.swift */,
 			);
 			name = ViewControllers;
@@ -303,6 +306,7 @@
 				705B58551DF9E6170048FB3F /* AppDelegate.swift in Sources */,
 				705B58871DF9E6A00048FB3F /* ElementCellVC.swift in Sources */,
 				705B58831DF9E6270048FB3F /* APIRequestManager.swift in Sources */,
+				705B588F1DFA07250048FB3F /* DetailViewController.swift in Sources */,
 				705B58851DF9E6670048FB3F /* ElementTableVC.swift in Sources */,
 				705B588C1DF9E7300048FB3F /* Element.swift in Sources */,
 			);
@@ -549,6 +553,7 @@
 				705B587B1DF9E6170048FB3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		705B587C1DF9E6170048FB3F /* Build configuration list for PBXNativeTarget "AC3.2-MidtermElementsTests" */ = {
 			isa = XCConfigurationList;
@@ -557,6 +562,7 @@
 				705B587E1DF9E6170048FB3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		705B587F1DF9E6170048FB3F /* Build configuration list for PBXNativeTarget "AC3.2-MidtermElementsUITests" */ = {
 			isa = XCConfigurationList;
@@ -565,6 +571,7 @@
 				705B58811DF9E6170048FB3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

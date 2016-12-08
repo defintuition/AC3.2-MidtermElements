@@ -10,6 +10,10 @@ import UIKit
 
 class ElementCellVC: UITableViewCell {
 
+    @IBOutlet weak var symbolLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var thumbNailImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -34,9 +34,37 @@ class ElementTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: ElementCellVC = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! ElementCellVC
-
+        
+        cell.symbolLabel.text = elementsArray[indexPath.row].symbol!
+        cell.nameLabel.text = "\(elementsArray[indexPath.row].name!) (\(elementsArray[indexPath.row].number!))"
+        
+        let symbol = elementsArray[indexPath.row].symbol!
+        
+        let thumbnailUrl: String = "https://s3.amazonaws.com/ac3.2-elements/\(symbol)_200.png"
+        APIRequestManager.manager.getData(endPoint: thumbnailUrl){ (data) in
+            
+            if let unwrappedData = data {
+                DispatchQueue.main.async {
+                    cell.thumbNailImage.image = UIImage(data: unwrappedData)
+                }
+            }
+        }
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let tappedCell: ElementCellVC = sender as? ElementCellVC {
+            if segue.identifier == "tappedElement" {
+                let destinationVC = segue.destination as! DetailViewController
+                let cellIndexPath: IndexPath = self.tableView.indexPath(for: tappedCell)!
+                
+                let selectedElement: Element = elementsArray[cellIndexPath.row]
+                destinationVC.element = selectedElement
+                
+                
+            }
+        }
     }
  
     func loadElements(){
@@ -48,11 +76,32 @@ class ElementTableVC: UITableViewController {
                 DispatchQueue.main.async {
                     self.elementsArray = elements
                     self.tableView.reloadData()
-                    print(self.elementsArray[19].id)
                 }
             }
         }
     }
-
+    
+    
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

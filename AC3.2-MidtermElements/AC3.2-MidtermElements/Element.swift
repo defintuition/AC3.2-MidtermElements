@@ -41,12 +41,12 @@ class Element: NSObject {
     let weight: Float?
     let name: String?
     let symbol: String?
-    let density: Int?
+    var density: Int?
     let discoveryYear: String?
     let group: Int?
     let electrons: String?
-    let ionEnergy: Double?
-    let crustPercent: Double?
+    var ionEnergy: Double?
+    var crustPercent: Double?
     
     init(id: Int?, recordUrl: String?, number: Int?, weight: Float?, name: String?, symbol: String?, density: Int?, discoveryYear: String?, group: Int?, electrons: String?, ionEnergy: Double?, crustPercent: Double?){
         
@@ -66,7 +66,10 @@ class Element: NSObject {
     }
     
     convenience init?(from dict: [String: Any]) {
-        
+        var dense: Int?
+        var ionEnergy: Double?
+        var crustPercent: Double?
+        var electrons: String?
         
         guard let id = dict["id"] as! Int? else {
             print("issue with id")
@@ -92,11 +95,6 @@ class Element: NSObject {
             print("issue with symbol")
             return nil
         }
-        
-        guard let density = dict["density"] as? Int else {
-            print("issue with density")
-            return nil
-        }
         guard let discoveryYear = dict["discovery_year"] as! String? else {
             print("issue with discoveryYear")
             return nil
@@ -105,24 +103,40 @@ class Element: NSObject {
             print("issue with group")
             return nil
         }
-        guard let electrons = dict["electrons"] as! String? else {
-            print("issue with electrons")
-            return nil
-        }
+//        guard let electrons = dict["electrons"] as! String? else {
+//            print("issue with electrons")
+//            return nil
+//        }
         
-        guard let ionEnergy = dict["ion_energy"] as! Double? else {
-            print("issue with ionEnergy")
-            return nil
-        }
-       
-        
-        guard let crustPercent = dict["crust_percent"] as? Double else {
-            return nil
+        if let elect = dict["electrons"] as? String {
+            electrons = elect
+        } else {
+            electrons = nil
         }
         
         
+        if let density = dict["density"] as? Int {
+            dense = density
+        } else {
+            dense = nil
+        }
         
-        self.init(id: id, recordUrl: recordUrl, number: number, weight: weight, name: name, symbol: symbol, density: density, discoveryYear: discoveryYear, group: group, electrons: electrons, ionEnergy: ionEnergy, crustPercent: crustPercent)
+        if let ionEn = dict["ion_energy"] as? Double {
+            ionEnergy = ionEn
+        } else {
+            ionEnergy = nil
+        }
+        
+        
+        if let crustPerc = dict["crust_percent"] as? Double {
+            crustPercent = crustPerc
+        } else {
+            crustPercent = nil
+        }
+        
+        
+        
+        self.init(id: id, recordUrl: recordUrl, number: number, weight: weight, name: name, symbol: symbol, density: dense, discoveryYear: discoveryYear, group: group, electrons: electrons, ionEnergy: ionEnergy, crustPercent: crustPercent)
     }
     
 
